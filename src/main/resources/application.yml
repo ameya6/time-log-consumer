@@ -1,0 +1,66 @@
+server:
+  port: 10006
+  servlet:
+    context-path: /duid-service
+
+spring:
+  threads:
+    virtual:
+      enabled: true
+  application:
+    name: duid-service
+  kafka:
+    consumer:
+      bootstrap-servers: 192.168.0.206:9092
+      key-serializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-serializer: org.apache.kafka.common.serialization.StringDeserializer
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  server:
+    port: 10016
+  security:
+    enabled: false
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: dev
+  threads:
+    virtual:
+      enabled: true
+  application:
+    name: duid-service
+  kafka:
+    consumer:
+      bootstrap-servers: 192.168.0.206:9092
+      key-serializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-serializer: org.apache.kafka.common.serialization.StringDeserializer
+
+server:
+  servlet:
+    context-path: /duid-service
+  port: 10006
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  server:
+    port: 10016
+  security:
+    enabled: false
+
+
