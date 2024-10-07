@@ -7,6 +7,7 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 import org.time.dao.ProcessTimeLogDao;
 import org.time.model.ProcessTimeLog;
+import org.time.model.ProcessTimeLogDTO;
 
 @Service
 @Log4j2

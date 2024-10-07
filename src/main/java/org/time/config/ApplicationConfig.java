@@ -16,6 +16,6 @@ public class ApplicationConfig {
 
     @Bean
     public Gson gson() {
-        return new GsonBuilder().registerTypeAdapter(LocalDateTime.class, new LocalDateTimeAdapter()).create();
+        return new GsonBuilder().registerTypeAdapter(LocalDateTime.class, new LocalDateTimeAdapter()  ).create();
     }
 }

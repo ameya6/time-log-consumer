@@ -1,17 +1,17 @@
 server:
   port: 10006
   servlet:
-    context-path: /duid-service
+    context-path: /time-log-service
 
 spring:
   threads:
     virtual:
       enabled: true
   application:
-    name: duid-service
+    name: time-log-service
   kafka:
     consumer:
-      bootstrap-servers: 192.168.0.206:9092
+      bootstrap-servers: ${KAFKA.SERVER.ADDRESS}
       key-serializer: org.apache.kafka.common.serialization.StringDeserializer
       value-serializer: org.apache.kafka.common.serialization.StringDeserializer
 
@@ -38,7 +38,7 @@ spring:
     virtual:
       enabled: true
   application:
-    name: duid-service
+    name: time-log-service
   kafka:
     consumer:
       bootstrap-servers: 192.168.0.206:9092
@@ -47,7 +47,7 @@ spring:
 
 server:
   servlet:
-    context-path: /duid-service
+    context-path: /time-log-service
   port: 10006
 
 management:
