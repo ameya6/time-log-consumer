@@ -12,8 +12,17 @@ spring:
   kafka:
     consumer:
       bootstrap-servers: ${KAFKA.SERVER.ADDRESS}
-      key-serializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-serializer: org.apache.kafka.common.serialization.StringDeserializer
+      key-serializer: ${KAFKA.KEY.STRING.SERIALIZER}
+      value-serializer: ${KAFKA.VALUE.STRING.SERIALIZER}
+
+datasource:
+  driver: ${DATASOURCE.DRIVER}
+  url: ${DATASOURCE.URL}
+  username:  ${DATASOURCE.USERNAME}
+  password: ${DATASOURCE.PASSWORD}
+  max-pool-size: ${DATASOURCE.MAX-POOL-SIZE}
+  test-query: ${DATASOURCE.TEST-QUERY}
+  pool-name: ${DATASOURCE.POOL-NAME}
 
 management:
   endpoint:
@@ -44,6 +53,15 @@ spring:
       bootstrap-servers: 192.168.0.206:9092
       key-serializer: org.apache.kafka.common.serialization.StringDeserializer
       value-serializer: org.apache.kafka.common.serialization.StringDeserializer
+
+datasource:
+  driver: org.postgresql.Driver
+  url: jdbc:postgresql://192.168.0.206:5432/postgres
+  username: postgres
+  password: password
+  max-pool-size: 40
+  test-query: SELECT 1
+  pool-name: springHikariCP
 
 server:
   servlet:
