@@ -6,6 +6,7 @@
         <Property name="defaultPattern"> %d{ISO8601} %-5level ${spring:spring.application.name} ${sys:hostName} ${sys:hostAddress} %t %c{1}.%M().%L - %msg%n%throwable{short.lineNumber}</Property>
         <Property name="logStashPattern">[%d{ISO8601}][%-5p][%-25c]%notEmpty{[%X{pipeline.id}]}%notEmpty{[%X{plugin.id}]} %m%n]</Property>
     </Properties>
+    <!-- Reference - https://karadenizfaruk28.medium.com/spring-boot-elk-stack-with-log4j2-socket-appender-6dd63f01ddba-->
     <Appenders>
         <Console name="console" target="SYSTEM_OUT">
             <PatternLayout pattern="${defaultPattern}" />
@@ -17,15 +18,15 @@
                 <TimeBasedTriggeringPolicy interval="1" modulate="true" />
             </Policies>
         </RollingFile>-->
-        <Socket name="socket" host="192.168.0.206" port="9999" reconnectionDelayMillis="5000">
+        <!--<Socket name="socket" host="192.168.0.206" port="9999" reconnectionDelayMillis="5000">
             <PatternLayout pattern="${defaultPattern}" />
-        </Socket>
+        </Socket>-->
     </Appenders>
     <Loggers>
         <Root level="info">
             <AppenderRef ref="console" />
             <!--<AppenderRef ref="rollingFile"/>-->
-            <AppenderRef ref="socket"/>
+            <!--<AppenderRef ref="socket"/>-->
         </Root>
     </Loggers>
 </Configuration>

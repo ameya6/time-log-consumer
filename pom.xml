@@ -79,6 +79,12 @@
                         <image>registry.hub.docker.com/${docker.username}/${project.artifactId}:${project.version}</image>
                         <image>registry.hub.docker.com/${docker.username}/${project.artifactId}:latest</image>
                     </to>
+                    <container>
+                        <jvmFlags>
+                            <jvmFlag>-XX:InitialRAMPercentage=20.0</jvmFlag>
+                            <jvmFlag>-XX:MaxRAMPercentage=90.0</jvmFlag>
+                        </jvmFlags>
+                    </container>
                 </configuration>
             </plugin>
         </plugins>
